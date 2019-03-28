@@ -16,14 +16,17 @@ public class Main {
 
         SelectionSort selectionSort = new SelectionSort();
         System.out.println("Selection");
-        //System.out.println(bench.bench(selectionSort, false));
-        for (int i = 1024; i <= Math.pow(2, 20); i*=2) {
+        for (int i = 10000; i <= 400000; i+=10000) {
             System.out.println("Length: " + i);
             bench.setArrayLength(i);
-            System.out.println(bench.bench(selectionSort, false));
+            System.out.println(bench.bench(selectionSort, false) +" ms");
         }
 
         System.out.println("Java");
-        System.out.println(bench.benchJavaSort(benchLength, false));
+        for (int i = 10000; i <= 400000; i+=10000) {
+            System.out.println("Length: " + i);
+            bench.setArrayLength(i);
+            System.out.println(bench.benchJavaSort(benchLength, false) + " ms");
+        }
     }
 }
