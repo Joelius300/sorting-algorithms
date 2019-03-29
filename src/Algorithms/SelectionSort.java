@@ -1,5 +1,7 @@
 package Algorithms;
 
+import Helper.Helper;
+
 public final class SelectionSort implements SortingAlgorithm{
     private final Helper h = new Helper();
 

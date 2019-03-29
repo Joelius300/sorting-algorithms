@@ -1,6 +1,6 @@
 package Algorithms;
 
-import java.util.Random;
+import Helper.Helper;
 
 public final class InsertionSort implements SortingAlgorithm{
     private final Helper h = new Helper();
