@@ -6,19 +6,30 @@ import Helper.Helper;
 import java.util.Arrays;
 
 public final class Bench {
-    private int arrayLength;
     private final Helper h = new Helper();
 
-    public Bench(int arrayLength) {
-        this.arrayLength = arrayLength;
-    }
-
+    private int arrayLength = 10000;
     public void setArrayLength(int arrayLength){
         this.arrayLength = arrayLength;
     }
+    public int getArrayLength(){
+        return this.arrayLength;
+    }
+
+    private int maxValue = 0;
+    public void setMaxValue(int maxValue){
+        this.maxValue = maxValue;
+    }
+
 
     public long bench(SortingAlgorithm algorithm, boolean printArray) {
-        int[] array = h.getRandomArray(arrayLength);
+        int[] array;
+        if(maxValue > 1) {
+            array = h.getRandomArray(arrayLength, maxValue);
+        }else{
+            array = h.getRandomArray(arrayLength);
+        }
+
         if (printArray) h.print(array);
 
         long start = System.currentTimeMillis();
@@ -30,28 +41,12 @@ public final class Bench {
         return end - start;
     }
 
-    public long bench(SortingAlgorithm algorithm, boolean printArray, int maxValue){
-        int[] array = h.getRandomArray(arrayLength, maxValue);
-        if(printArray) h.print(array);
-
-        long start = System.currentTimeMillis();
-        algorithm.sort(array);
-        long end = System.currentTimeMillis();
-
-        if(printArray) h.print(array);
-
-        return end-start;
-    }
-
-    public long benchJavaSort(int arrayLength, boolean printArray){
-        int[] array = h.getRandomArray(arrayLength, Integer.MAX_VALUE);
-
-        if(printArray) h.print(array);
-        long start = System.currentTimeMillis();
-        Arrays.sort(array);
-        long end = System.currentTimeMillis();
-        if(printArray) h.print(array);
-
-        return end-start;
+    public void benchLoop(SortingAlgorithm algorithm, boolean print, int start, int end, int increment){
+        System.out.println(algorithm.getClass().getSimpleName());
+        for (int i = start; i <= end; i+= increment) {
+            System.out.println("Length: " + i);
+            setArrayLength(i);
+            System.out.println(bench(algorithm, print) +" ms");
+        }
     }
 }
