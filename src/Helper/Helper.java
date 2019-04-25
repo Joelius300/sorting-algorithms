@@ -1,5 +1,6 @@
-package Algorithms;
+package Helper;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public final class Helper {
@@ -26,7 +27,7 @@ public final class Helper {
         for (int i = 0; i < out.length; i++) {
             int insert;
             do{
-                insert = rnd.nextInt(Integer.MAX_VALUE);
+                insert = rnd.nextInt();
             }while(insert < 0);
 
             out[i] = insert;
@@ -39,6 +40,16 @@ public final class Helper {
         int temp = array[i1];
         array[i1] = array[i2];
         array[i2] = temp;
+    }
+
+    public int[] convertIntListToArray(ArrayList<Integer> listResult) {
+        int[] result = new int[listResult.size()];
+        int i = 0;
+        for (int num : listResult) {
+            result[i++] = num;
+        }
+
+        return result;
     }
 
     public void print(int[] array){
