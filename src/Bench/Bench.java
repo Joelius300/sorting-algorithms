@@ -41,6 +41,25 @@ public final class Bench {
         return end - start;
     }
 
+    public long benchReverse(SortingAlgorithm algorithm, boolean printArray) {
+        int[] array;
+        if(maxValue > 1) {
+            array = h.getRandomArray(arrayLength, maxValue);
+        }else{
+            array = h.getRandomArray(arrayLength);
+        }
+
+        if (printArray) h.print(array);
+
+        long start = System.currentTimeMillis();
+        algorithm.sortReverse(array);
+        long end = System.currentTimeMillis();
+
+        if (printArray) h.print(array);
+
+        return end - start;
+    }
+
     public void benchLoop(SortingAlgorithm algorithm, boolean print, int start, int end, int increment){
         System.out.println(algorithm.getClass().getSimpleName());
         for (int i = start; i <= end; i+= increment) {

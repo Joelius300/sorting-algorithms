@@ -18,4 +18,18 @@ public final class SelectionSort implements SortingAlgorithm{
             }
         }
     }
+
+    public void sortReverse(int[] toBeSorted){
+        for (int i = 0; i < toBeSorted.length; i++) {
+            int indexHighest = i;
+            for (int j = i+1; j < toBeSorted.length; j++) {
+                if(toBeSorted[j] > toBeSorted[indexHighest]){
+                    indexHighest = j;
+                }
+            }
+            if(indexHighest > i){
+                h.swap(toBeSorted, i, indexHighest);
+            }
+        }
+    }
 }

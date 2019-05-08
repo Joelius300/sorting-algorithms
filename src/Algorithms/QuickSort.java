@@ -1,6 +1,7 @@
 package Algorithms;
 
 import Helper.Helper;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 
@@ -21,5 +22,9 @@ public final class QuickSort implements SortingAlgorithm{
         }
 
         //etc
+    }
+
+    public void sortReverse(int[] toBeSorted){
+        throw new NotImplementedException();
     }
 }
