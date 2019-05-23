@@ -2,7 +2,7 @@ package Algorithms;
 
 import Helper.Helper;
 
-public final class BubbleSort implements SortingAlgorithm{
+public final class BubbleSort implements ISortingAlgorithm {
     private final Helper h = new Helper();
 
     public void sort(int[] toBeSorted){

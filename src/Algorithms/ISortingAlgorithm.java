@@ -1,5 +1,5 @@
 package Algorithms;
 
-public interface SortingAlgorithm {
+public interface ISortingAlgorithm {
     void sort(int[] array);
 }

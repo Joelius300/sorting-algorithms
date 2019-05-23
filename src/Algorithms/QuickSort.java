@@ -4,7 +4,7 @@ import Helper.Helper;
 
 import java.util.ArrayList;
 
-public final class QuickSort implements SortingAlgorithm{
+public final class QuickSort implements ISortingAlgorithm {
     private final Helper h = new Helper();
 
     public void sort(int[] toBeSorted){

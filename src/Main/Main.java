@@ -16,11 +16,16 @@ public class Main {
 
 
     public static void main(String[] args){
-        SortingAlgorithm[] algorithms = {new BubbleSort(), new InsertionSort(), new JavaAPISort(), new SelectionSort() };
+        ISortingAlgorithm[] algorithms = {new BubbleSort(), new InsertionSort(), new JavaAPISort(), new SelectionSort(), new MergeSort()};
 
         for (int i = 0; i < algorithms.length; i++) {
             bench.benchLoop(algorithms[i], PRINT_ARRAY, ITERATION_START, ITERATION_END, ITERATION_INCREMENT);
             System.out.println();
         }
+
+//        ISortingAlgorithm algorithm = new MergeSort();
+//        bench.setArrayLength(100);
+//        bench.setMaxValue(500);
+//        bench.bench(algorithm, true);
     }
 }

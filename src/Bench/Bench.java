@@ -1,9 +1,7 @@
 package Bench;
 
-import Algorithms.SortingAlgorithm;
+import Algorithms.ISortingAlgorithm;
 import Helper.Helper;
-
-import java.util.Arrays;
 
 public final class Bench {
     private final Helper h = new Helper();
@@ -22,7 +20,7 @@ public final class Bench {
     }
 
 
-    public long bench(SortingAlgorithm algorithm, boolean printArray) {
+    public long bench(ISortingAlgorithm algorithm, boolean printArray) {
         int[] array;
         if(maxValue > 1) {
             array = h.getRandomArray(arrayLength, maxValue);
@@ -41,7 +39,7 @@ public final class Bench {
         return end - start;
     }
 
-    public void benchLoop(SortingAlgorithm algorithm, boolean print, int start, int end, int increment){
+    public void benchLoop(ISortingAlgorithm algorithm, boolean print, int start, int end, int increment){
         System.out.println(algorithm.getClass().getSimpleName());
         for (int i = start; i <= end; i+= increment) {
             System.out.println("Length: " + i);

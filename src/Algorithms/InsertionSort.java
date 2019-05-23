@@ -2,7 +2,7 @@ package Algorithms;
 
 import Helper.Helper;
 
-public final class InsertionSort implements SortingAlgorithm{
+public final class InsertionSort implements ISortingAlgorithm {
     private final Helper h = new Helper();
 
     public void sort(int[] array){
