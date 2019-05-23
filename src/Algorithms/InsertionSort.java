@@ -15,7 +15,7 @@ public final class InsertionSort implements ISortingAlgorithm {
         }
     }
 
-    private void sortDESC(int[] array){
+    public void sortReverse(int[] array){
         for (int i = 1; i < array.length; i++) {
             for (int j = i-1; j >= 0; j--) {
                 if(array[j] < array[j+1]){

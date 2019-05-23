@@ -19,7 +19,11 @@ public class Main {
         ISortingAlgorithm[] algorithms = {new BubbleSort(), new InsertionSort(), new JavaAPISort(), new SelectionSort(), new MergeSort()};
 
         for (int i = 0; i < algorithms.length; i++) {
-            bench.benchLoop(algorithms[i], PRINT_ARRAY, ITERATION_START, ITERATION_END, ITERATION_INCREMENT);
+            //bench.benchLoop(algorithms[i], PRINT_ARRAY, ITERATION_START, ITERATION_END, ITERATION_INCREMENT);
+            System.out.println(algorithms[i].getClass().getSimpleName());
+            bench.bench(algorithms[i], true);
+            System.out.println("Reverse");
+            bench.benchReverse(algorithms[i], true);
             System.out.println();
         }
 
